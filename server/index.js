@@ -10,7 +10,7 @@ const productRouter = require('./routes/products_routes');
 const userRouter = require('./routes/user_routes');
 
 //INIT
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
  const DB = "mongodb+srv://the_dev_karan:z0ZkDNDYRyGffGFS@lastminutegifts.abusmes.mongodb.net/?retryWrites=true&w=majority&appName=LastMinuteGifts";
 

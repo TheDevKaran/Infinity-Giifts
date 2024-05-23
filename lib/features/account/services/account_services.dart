@@ -5,10 +5,12 @@ import 'package:http/http.dart' as http;
 import 'package:lastminutegift/constants/error_handling.dart';
 import 'package:lastminutegift/constants/gloVar.dart';
 import 'package:lastminutegift/constants/utils.dart';
+import 'package:lastminutegift/features/auth/screens/auth_screens.dart';
 import 'package:lastminutegift/models/order.dart';
 import 'package:lastminutegift/models/product.dart';
 import 'package:lastminutegift/providers/user_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountServices {
   Future<List<Order>> fetchMyOrders(
@@ -35,4 +37,16 @@ class AccountServices {
     }
     return orderList;
   }
-}
+
+  void logout(BuildContext context) async {
+    try{
+      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+      await sharedPreferences.setString('x-auth-token', '');
+      Navigator.pushNamedAndRemoveUntil(context, AuthScreen.routeName, (route)=>false);
+    }
+    catch(e) {
+      showSnackBar(context, e.toString());
+    }
+    }
+  }
+

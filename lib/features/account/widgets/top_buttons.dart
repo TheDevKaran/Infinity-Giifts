@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lastminutegift/features/account/services/account_services.dart';
 import 'package:lastminutegift/features/account/widgets/account_button.dart';
 
-class TopButtons extends StatefulWidget {
+class TopButtons extends StatelessWidget {
   const TopButtons({super.key});
 
-  @override
-  State<TopButtons> createState() => _TopButtonsState();
-}
-
-class _TopButtonsState extends State<TopButtons> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +15,7 @@ class _TopButtonsState extends State<TopButtons> {
         ],),
         const SizedBox(height: 10,),
         Row(children: [
-          AccountButton(text: 'Log Out', onTap: () {  },),
+          AccountButton(text: 'Log Out', onTap: () => AccountServices().logout(context),),
           AccountButton(text: 'Your Wish List', onTap: () {  },)
         ],)
       ],
