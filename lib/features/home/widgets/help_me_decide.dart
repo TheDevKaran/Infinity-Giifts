@@ -15,7 +15,7 @@ class HelpMeDecide extends StatefulWidget {
 
 class _HelpMeDecideState extends State<HelpMeDecide> {
   TextEditingController _userInput = TextEditingController();
-  static const apiKey = "AIzaSyB5fL-5YkCjenoHjd7-NXG4OJb403QnSUk";
+  static const apiKey = "<Enter Gemini Key>";
   final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
   final List<Message> _messages = [];
   bool _isTyping = false;
