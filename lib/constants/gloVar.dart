@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-String uri = 'https://334e-2409-40e4-2050-604d-7986-412c-dda5-7708.ngrok-free.app';
+String uri = 'https://infinity-giifts.vercel.app';
 //https://localhost:3000
 class GlobalVariables {
   // COLORS
