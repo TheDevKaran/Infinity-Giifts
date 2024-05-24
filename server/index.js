@@ -1,7 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config();
 //IMPORT EXTERNAL PACKAGES
 //same like import 'package:express/express.dart'
 const express = require('express'); 
 const mongoose = require('mongoose');
+
+
+// require('dotenv').config(); // 
 
 //IMPORT FROM OTHER FILES
 const authRouter = require("./routes/auth_routes");
@@ -10,10 +15,8 @@ const productRouter = require('./routes/products_routes');
 const userRouter = require('./routes/user_routes');
 
 //INIT
-const PORT = process.env.PORT || 3000;
 const app = express();
-const DB = "mongodb+srv://the_dev_karan:z0ZkDNDYRyGffGFS@lastminutegifts.abusmes.mongodb.net/?retryWrites=true&w=majority&appName=LastMinuteGifts";
-const jwt_token = "passwordKey";
+
 
  //MIDDLEWARE
 app.use(express.json());
@@ -23,8 +26,7 @@ app.use(productRouter);
 app.use(userRouter);  
 
 //connections
-mongoose
-    .connect(DB)
+mongoose.connect(process.env.DB)
     .then(()=>{
         console.log('connection successful'); 
     })
@@ -38,5 +40,5 @@ mongoose
 // });
 
 
-app.listen(PORT, "0.0.0.0", ()=>{console.log(`connected at port ${PORT}`);});
+app.listen(process.env.PORT, "0.0.0.0", ()=>{console.log(`connected at port ${process.env.PORT}`);});
 //localhost

@@ -36,7 +36,7 @@ authRouter.post("/api/signin", async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ msg: "Incorrect password" });
         }
-        const token = jwt.sign({ id: user._id }, "passwordKey");
+        const token = jwt.sign({ id: user._id }, process.env.JWT_TOKEN);
         res.json({ token, ...user._doc });
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -47,7 +47,7 @@ authRouter.post("/tokenIsValid", async (req, res) => {
     try {
         const token = req.header('x-auth-token');
         if (!token) return res.json(false);
-        const verified = jwt.verify(token, "passwordKey");
+        const verified = jwt.verify(token, process.env.JWT_TOKEN);
         if (!verified) return res.json(false);
         const user = await User.findById(verified.id);
         if (!user) return res.json(false);
