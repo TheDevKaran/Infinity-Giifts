@@ -46,7 +46,6 @@ class _OrdersScreenState extends State<OrdersScreen> {
         return GestureDetector(
           onTap: (){
             Navigator.pushNamed(context, OrderDetailsScreen.routeName, arguments: orderData);
-            print('test');
             },
 
           child: SizedBox(

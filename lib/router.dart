@@ -11,10 +11,10 @@ import 'package:lastminutegift/features/product_details/screens/product_details_
 import 'package:lastminutegift/features/search/screens/search_screen.dart';
 import 'package:lastminutegift/models/order.dart';
 import 'package:lastminutegift/models/product.dart';
+import 'package:lastminutegift/features/home/widgets/help_me_decide.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
-
     case AuthScreen.routeName:
       return MaterialPageRoute(
           settings: routeSettings, builder: (_) => const AuthScreen());
@@ -25,7 +25,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
 
     case BottomBar.routeName:
       return MaterialPageRoute(
-          settings: routeSettings, builder: (_) => const BottomBar( ));
+          settings: routeSettings, builder: (_) => const BottomBar());
 
     case AddProductsScreen.routeName:
       return MaterialPageRoute(
@@ -34,36 +34,50 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case CategoryDealsScreen.routeName:
       var category = routeSettings.arguments as String;
       return MaterialPageRoute(
-          settings: routeSettings, builder: (_) => CategoryDealsScreen(category: category));
+          settings: routeSettings,
+          builder: (_) => CategoryDealsScreen(category: category));
 
     case SearchScreen.routeName:
       var searchQuery = routeSettings.arguments as String;
       return MaterialPageRoute(
           settings: routeSettings,
-          builder: (_) => SearchScreen(
-              searchQuery: searchQuery));
+          builder: (_) => SearchScreen(searchQuery: searchQuery));
 
     case ProductDetailScreen.routeName:
       var product = routeSettings.arguments as Product;
       return MaterialPageRoute(
           settings: routeSettings,
           builder: (_) => ProductDetailScreen(
-            product: product,));
+                product: product,
+              ));
 
     case AddressScreen.routeName:
       var totalAmount = routeSettings.arguments as String;
       return MaterialPageRoute(
           settings: routeSettings,
-          builder: (_) => AddressScreen(totalAmount: totalAmount,));
+          builder: (_) => AddressScreen(
+                totalAmount: totalAmount,
+              ));
 
     case OrderDetailsScreen.routeName:
       var order = routeSettings.arguments as Order;
       return MaterialPageRoute(
           settings: routeSettings,
-          builder: (_) => OrderDetailsScreen(order: order,));
+          builder: (_) => OrderDetailsScreen(
+                order: order,
+              ));
+
+    case HelpMeDecide.routeName:
+      return MaterialPageRoute(
+          settings: routeSettings, builder: (_) => const HelpMeDecide());
 
     default:
       return MaterialPageRoute(
-          settings: routeSettings, builder: (_) => const Scaffold(body: Center(child: Text('Screen does not exist!'),),));
+          settings: routeSettings,
+          builder: (_) => const Scaffold(
+                body: Center(
+                  child: Text('Screen does not exist!'),
+                ),
+              ));
   }
 }

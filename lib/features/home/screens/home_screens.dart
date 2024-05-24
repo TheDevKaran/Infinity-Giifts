@@ -9,6 +9,7 @@ import 'package:lastminutegift/features/home/widgets/top_categories.dart';
 import 'package:lastminutegift/features/search/screens/search_screen.dart';
 import 'package:lastminutegift/providers/user_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:lastminutegift/features/home/widgets/help_me_decide.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -101,10 +102,19 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
-            DealOfDay()
+            DealOfDay(),
           ],
+          
         ),
       ),
-    );
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Navigator.pushNamed(context, HelpMeDecide.routeName);},
+        backgroundColor: GlobalVariables.selectedNavBarColor,
+        child: const Icon(Icons.question_mark, ),
+        tooltip: 'Help Me Decide',
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      );
   }
 }

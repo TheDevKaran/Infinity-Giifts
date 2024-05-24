@@ -11,29 +11,27 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50), child: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: GlobalVariables.appBarGradient
-          ),
+      appBar: AppBar(
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+          gradient: GlobalVariables.appBarGradient
         ),
-        title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-          Container(
-            alignment: Alignment.topLeft,
-            child: Image.asset('assets/images/logo-no-background.png', width: 120, height: 45, ),
-        ),
-          Container(padding: const EdgeInsets.only(left: 15, right: 15), child: Row(
-            children: const [
-              Padding(padding: EdgeInsets.only(right: 15), child: Icon(Icons.notifications_outlined,color: Color.fromRGBO(161, 39, 16, 1),),),
-              Icon(Icons.search, color: Color.fromRGBO(161, 39, 16, 1))
-            ],
-          ),)
+      ),
+      title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+        Container(
+          alignment: Alignment.topLeft,
+          child: Image.asset('assets/images/logo-no-background.png', width: 120, height: 45, ),
+      ),
+        Container(padding: const EdgeInsets.only(left: 15, right: 15), child: Row(
+          children: const [
+            Padding(padding: EdgeInsets.only(right: 15), child: Icon(Icons.notifications_outlined,color: Color.fromRGBO(161, 39, 16, 1),),),
+            Icon(Icons.search, color: Color.fromRGBO(161, 39, 16, 1))
+          ],
+        ),)
 
-        ]),
-      ),
-      ),
+      ]),
+            ),
       body: Column(
         children: const [
           BelowAppBar(),

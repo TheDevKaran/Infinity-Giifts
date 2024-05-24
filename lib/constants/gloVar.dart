@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-String uri = 'https://bbd6-2401-4900-1c85-fcd9-1023-496c-c2c5-8f42.ngrok-free.app';
+String uri = 'https://ad0a-2409-40e5-1e-179-7986-412c-dda5-7708.ngrok-free.app';
 //https://localhost:3000
 class GlobalVariables {
   // COLORS
